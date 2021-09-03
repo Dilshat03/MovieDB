@@ -42,7 +42,7 @@ const FilmDetails = () => {
                     <p>Рейтинг: {film.vote_average * 10}%</p>
                     <p>Бюджет: {film.budget > 0 ? `$${film.budget.toLocaleString()}` : '-'}</p>
                     <p>Сборы: {film.revenue > 0 ? `$${film.revenue.toLocaleString()}` : '-'}</p>
-                    <p>Длительность: {film.runtime}</p>
+                    <p>Длительность: {Math.floor(film.runtime/60)}ч {Math.floor(film.runtime%60)}м</p>
                     <div className='d-flex'>Жанр:
                         {
                             film.genres.map(el =>
@@ -72,10 +72,8 @@ const FilmDetails = () => {
                 }
             </div>
             <button className='btn d-flex align-items-center' onClick={handleActors}>Смотреть еще <i className="fas fa-arrow-right"></i></button>
-
         </div>
-    )
-        ;
+    );
 };
 
 export default FilmDetails;
