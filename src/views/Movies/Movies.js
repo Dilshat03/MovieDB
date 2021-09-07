@@ -1,23 +1,29 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Spinner from "../../components/Spinner";
+import Search from "../../components/Search/Search";
 
 const Movies = () => {
     const [page, setPage] = useState(1)
     const [movies, setMovies] = useState([])
-
-
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
 
         axios(`https://api.themoviedb.org/3/discover/movie?page=${page}&language=ru&api_key=6f19f87e3380315b9573c4270bfc863c`)
-            .then(({data: {results}}) => setMovies(results))
+            .then(({data: {results}}) => {
+                    setMovies(results)
+                    setIsLoading(false)
+                })
 
     }, [page])
 
     const handlePage = (num) => {
         setPage(num)
     }
-
+    if (isLoading) {
+        return <Spinner/>
+    }
     return (
         <div>
             <div className="d-flex mb-5 justify-content-center">
@@ -25,7 +31,7 @@ const Movies = () => {
                     Array(6).fill(0).map((el, idx) =>
                         <div key={el.id}>
                             <button onClick={() => handlePage(idx + 1)}
-                                    className={`mx-2 btn btn-warning`}>{idx + 1}</button>
+                                    className={`mx-2 btn btn-warning ${page === idx + 1 && 'btn-danger'}`}>{idx + 1}</button>
                         </div>
                     )
                 }

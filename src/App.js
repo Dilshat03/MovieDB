@@ -5,6 +5,7 @@ import FilmDetails from "./views/FilmDetails/FilmDetails";
 import Header from "./components/Header";
 import Actor from "./views/Actor";
 import AllActors from "./views/AllActors";
+import Browse from "./views/Browse";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                 <Route exact path='/'><Movies/></Route>
                 <Route path='/film/:id'><FilmDetails /></Route>
                 <Route path='/actor/:id'><Actor /></Route>
+                <Route path='/browse/:name'><Browse /></Route>
                 <Route path='/allActors/:id'><AllActors /></Route>
             </div>
         </Router>

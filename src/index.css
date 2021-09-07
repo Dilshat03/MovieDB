@@ -16,8 +16,8 @@ a{
     object-fit: cover;
 }
 .img-actors{
-    width: 100px;
-    height: 150px;
+    width: 80px;
+    height: 100px;
     object-fit: cover;
 }
 .genre{
@@ -27,4 +27,10 @@ a{
     width: 300px;
     height: 300px;
     object-fit: cover;
+}
+.owl-carousel .owl-item img {
+    width: 80px;
+}
+.btn-more{
+    height: 100px;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from "../../images/clapperboard.png";
 import {Link} from "react-router-dom";
+import Search from "../Search/Search";
 
 const Header = () => {
     return (
@@ -20,6 +21,8 @@ const Header = () => {
                         <Link to={'/'} className="text-light">Home</Link>
                     </div>
                 </div>
+                <Search />
+
             </div>
         </header>
 
