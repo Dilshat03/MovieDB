@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import Spinner from "../../components/Spinner";
-import Search from "../../components/Search/Search";
 
 const Movies = () => {
     const [page, setPage] = useState(1)
