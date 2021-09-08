@@ -7,8 +7,8 @@ const BackBtn = () => {
         history.goBack()
     }
     return (
-        <div>
-            <button onClick={handleBack} className='back-btn'>Back</button>
+        <div className='mb-5'>
+            <button onClick={handleBack} className='btn btn-outline-warning '>Back</button>
         </div>
     );
 };

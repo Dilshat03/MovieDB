@@ -52,8 +52,8 @@ const Actor = () => {
     }
 
     return (
-        <div>
-            <div className='d-flex'>
+        <div className='actor container'>
+            <div className='d-flex details-films'>
                 <div className='mx-5'>
                     <img
                         src={actor.profile_path ? `https://www.themoviedb.org/t/p/w440_and_h660_face/${actor.profile_path}` : 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'}
@@ -74,8 +74,8 @@ const Actor = () => {
                     <p><b>Известность за:</b></p>
                     <div className="row">
                         {
-                            film.slice(0, 10).map(el =>
-                                <Link to={`/film/${el.id}`} className='col-2 text-secondary text-center fs-6'>
+                            film.sort((a, b) => b.vote_count - a.vote_count).slice(0, 10).map(el =>
+                                <Link to={`/film/${el.id}`} className='col-3 text-secondary text-center fs-6'>
                                     <img
                                         src={el.poster_path ? `https://www.themoviedb.org/t/p/w440_and_h660_face/${el.poster_path}` : 'https://i.pinimg.com/280x280_RS/ed/03/06/ed0306b0f54a221a1a4d17823d354a18.jpg'}
                                         alt="" className=' img-actors'/>
@@ -84,6 +84,18 @@ const Actor = () => {
                             )
                         }
                     </div>
+                    <h4 className='text-danger'>Фильмография:</h4>
+                    {
+                        film.filter(item => item.release_date).sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).map(el =>
+                            <Link to={`/film/${el.id}`}>
+                                <div key={el.id} className='films-list d-flex align-items-baseline text-success'>
+                                    <p className="me-3">{el.release_date.slice(0, 4)}</p> <h6
+                                    className="me-3">{el.title}</h6> <span className='how me-3'>как</span>
+                                    <p>{el.character}</p>
+                                </div>
+                            </Link>
+                        )
+                    }
                 </div>
             </div>
         </div>

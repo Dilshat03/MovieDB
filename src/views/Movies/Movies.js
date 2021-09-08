@@ -25,8 +25,8 @@ const Movies = () => {
         return <Spinner/>
     }
     return (
-        <div>
-            <div className="d-flex mb-5 justify-content-center">
+        <div className='movies'>
+            <div className="d-flex mb-5 justify-content-center ">
                 {
                     Array(6).fill(0).map((el, idx) =>
                         <div key={el.id}>
@@ -36,14 +36,14 @@ const Movies = () => {
                     )
                 }
             </div>
-            <div className='row'>
+            <div className='row text-center '>
                 {
                     movies.map(el =>
-                        <div key={el.id} className='col-md-3 text-center'>
+                            <div key={el.id} className='col-md-3 text-center'>
                             <Link to={`/film/${el.id}`}>
                                 <img src={`https://www.themoviedb.org/t/p/w440_and_h660_face${el.poster_path}`}
-                                     className='img-films' alt=""/>
-                                <h3 className='mb-5 mt-3 text-center fs-5 text-success'>{el.title}</h3>
+                                     className='img-films movie-card' alt=""/>
+                                <h3 className='mb-5 mt-3 text-center fs-5 text-success movies'>{el.title}</h3>
                             </Link>
                         </div>
                     )

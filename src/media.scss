@@ -1,0 +1,52 @@
+@media (max-width: 1200px){
+  /*993-1200*/
+
+}
+
+
+@media (max-width: 992px){
+  /*769-992*/
+  .col-md-3 {
+    width: 33.3333%;
+  }
+  .actors-name{
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 768px){
+  /*481-768*/
+  .col-md-3 {
+    width: 50%;
+  }
+  .header-title {
+    margin-left: 15px;
+    font-size: 15px;
+  }
+  .logo{
+    width: 25px;
+    height: 25px;
+  }
+  .rounded-pill {
+    height: 30px;
+  }
+  .btn-header{
+    height: 30px;
+    font-size: 10px;
+  }
+  .details-films{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .col-2 {
+    width: 25%;
+  }
+}
+
+
+@media (max-width: 480px){
+  /*320-480*/
+
+}

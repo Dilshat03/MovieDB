@@ -1,0 +1,120 @@
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Kanit&family=PT+Sans+Narrow&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Staatliches&display=swap');//font-family: 'Anton', sans-serif;
+//font-family: 'Kanit', sans-serif;
+//font-family: 'PT Sans Narrow', sans-serif;
+//font-family: 'Staatliches', cursive;
+* {
+    padding: 0;
+    margin: 0;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+}
+a {
+    text-decoration: none;
+}
+
+.img-films {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.img-poster {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.img-actors {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.genre {
+    margin-right: 5px;
+}
+
+.img-actor {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.owl-carousel .owl-item img {
+    width: 80px;
+    display: inline-flex;
+}
+
+.btn-more {
+    height: 100px;
+}
+
+.btn-search {
+    border-radius: 30px;
+    margin-left: 10px;
+    height: 40px;
+}
+
+.pageButton {
+    display: block;
+    margin: 0 auto
+}
+.buttons-group{
+    display: flex;
+}
+.menu-link{
+    display: flex;
+    align-items: baseline;
+    margin-right: 10px;
+}
+.decs-footer{
+    margin: 0 auto;
+    color: aliceblue;
+}
+.icon-contact{
+    margin-right: 10px;
+    font-size: 20px;
+    color: aliceblue;
+}
+body{
+    background-color: #252424;
+    color: aliceblue;
+
+}
+.header-footer{
+    background-color: #8fc700;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+.movies{
+    font-family: 'Staatliches', cursive;}
+.details{
+    font-family: 'Azeret Mono', monospace;
+}
+.actor{
+    font-family: 'Staatliches', cursive;
+}
+.movie-card:hover{
+    box-shadow: 0 0 13px 9px rgba(238,248,255,0.87);
+}
+.pageButton{
+    padding: 10px;
+    border-radius: 0 30px 0;
+    border: 1px solid aliceblue;
+    background-color: #252424;
+}
+.pageButton i{
+    font-size: 20px;
+    color: aliceblue;
+}
+.logo-title{
+    display: flex;
+    align-items: center;
+}
+.header-title{
+    margin-left: 20px;
+    color: #252424;
+}

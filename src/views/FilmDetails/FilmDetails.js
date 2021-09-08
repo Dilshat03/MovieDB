@@ -4,11 +4,14 @@ import axios from 'axios'
 import BackBtn from "../../components/BackBTN/BackBtn";
 import Spinner from "../../components/Spinner";
 import OwlCarousel from 'react-owl-carousel';
+import Trailers from "../../components/Trailers";
+
 
 
 const FilmDetails = () => {
     const [film, setFilm] = useState({})
     const [actors, setActors] = useState([])
+    const [trailers, setTrailers] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [ActorLoading, setActorLoading] = useState(true)
     const {id} = useParams()
@@ -28,15 +31,17 @@ const FilmDetails = () => {
                 setActors(data.cast)
                 setActorLoading(false)
             })
+        axios(`http://api.themoviedb.org/3/movie/${id}/videos?&api_key=6f19f87e3380315b9573c4270bfc863c`)
+            .then(({data}) => setTrailers(data.results))
     }, [id])
 
     if (isLoading && ActorLoading) {
         return <Spinner/>
     }
     return (
-        <div>
+        <div className='details'>
             <BackBtn/>
-            <div className='d-flex mb-5'>
+            <div className='d-flex mb-5 details-films'>
                 <img src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${film.poster_path}`}
                      className='img-poster rounded mx-5' alt=""/>
                 <div>
@@ -53,26 +58,27 @@ const FilmDetails = () => {
                             )
                         }
                     </div>
-                        {/*<div>{film?.production_countries[0].name} {film.production_countries.map(el =>*/}
-                        {/*    <p className='mb-0'>*/}
-                        {/*        <i className="fas fa-flag"></i> {el.name}</p>)}*/}
-                        {/*</div>*/}
+                    {
+                        trailers.slice(0, 1).map(item =>
+                            <Trailers key={item.key} id={item.key}/>
+                        )
+                    }
                     <p className='w-900'>
                         <b>Обзор:</b> <br/>
                         {film.overview}</p>
                 </div>
             </div>
-                <OwlCarousel className='owl-theme'  margin={-5} dots={false} items={8}>
+                <OwlCarousel className='owl-theme text-center d-flex justify-content-center'  margin={-5} dots={false} items={8}>
                     {
                         actors.slice(0, 10).map(el =>
-                            <Link to={`/actor/${el.id}`} key={el.id} className='  text-secondary'>
+                            <Link to={`/actor/${el.id}`} key={el.id} className='text-secondary'>
                                 <img src={el.profile_path ? `https://www.themoviedb.org/t/p/w100_and_h100_face${el.profile_path}` : 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'} alt=""
                                     className=' img-actors text-center rounded'/>
                                 <h5 className='actors-name'>{el.name}</h5>
                             </Link>
                         )
                     }
-                    <button className='btn btn-more d-flex align-items-center justify-content-center text-center' onClick={handleActors}>Смотреть еще <i className="fas fa-arrow-right"></i></button>
+                    <button className='btn btn-more d-flex align-items-center justify-content-center text-center text-light' onClick={handleActors}>Смотреть еще <i className="fas fa-arrow-right"></i></button>
                 </OwlCarousel>
         </div>
     );

@@ -5,23 +5,22 @@ import Search from "../Search/Search";
 
 const Header = () => {
     return (
-        <header className='bg-secondary'>
+        <header className='header-footer p-2'>
             <div className='header container '>
                 <div className="header-wrapper d-flex justify-content-between align-items-center p-3">
                     <div>
-                        <Link to='/'>
-                            <img src={Logo} alt="" width='40' height='40'/>
+                        <Link to='/' className='logo-title'>
+                            <img src={Logo} alt="" width='40' height='40' className='logo'/>
+                            <h3 className='header-title'>Cinema</h3>
                         </Link>
-                    </div>
-                    <div>
-                        <h1 className=''>Cinema</h1>
                     </div>
 
                     <div className="menu-link">
-                        <Link to={'/'} className="text-light">Home</Link>
+                        <Link to={'/'} className="text-light mx-5">Home</Link>
+                        <Search />
                     </div>
+
                 </div>
-                <Search />
 
             </div>
         </header>
